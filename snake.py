@@ -134,6 +134,9 @@ def move_snake():
     new_pos = snake.pos()
     new_x_pos = new_pos[0]
     new_y_pos = new_pos[1]
+    edges=turtle.clone
+    edges.penup()
+    edges.goto(
     if new_x_pos >= RIGHT_EDGE:
         print('You hit the right edge! Game over!')
         quit()
