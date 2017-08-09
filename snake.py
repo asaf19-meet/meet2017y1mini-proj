@@ -9,7 +9,7 @@ turtle.setup(SIZE_X, SIZE_Y)
 turtle.penup()
 
 SQUARE_SIZE = 20
-START_LENGTH = 15
+START_LENGTH = 5
 
 pos_list = []
 stamp_list = []
@@ -153,7 +153,8 @@ move_snake()
 turtle.register_shape("cool (3).gif")
 food=turtle.clone()
 food.shape("cool (3).gif")
-food_pos = [(100,100),(-100,100),(-100,-100),(100,-100)]
+##food_pos = [(100,100),(-100,100),(-100,-100),(100,-100)]
+food_pos = [(100,100),]
 food_stamps = []
 for this_food_pos in food_pos:
     x_pos = this_food_pos[0]
