@@ -17,9 +17,33 @@ food_pos = []
 food_stamps = []
 
 snake = turtle.clone()
-snake.shape("square")
-snake.color('green')
+snake.shape("circle")
+snake.color('blue')
 turtle.hideturtle()
+
+
+background=turtle.clone()
+turtle.register_shape("adam.gif")
+background.shape("adam.gif")
+background.goto(0,0)
+background.pendown()
+background.stamp()
+
+edges=turtle.clone()
+turtle.register_shape("taco.gif")
+edges.shape("taco.gif")
+edges.penup()
+edges.goto(400,250)
+edges.pendown()
+edges.stamp()
+edges.goto(400,-250)
+edges.stamp()
+edges.goto(-400,-250)
+edges.stamp()
+edges.goto(-400,250)
+edges.stamp()
+edges.goto(400,250)
+edges.stamp()
 
 for i in range(START_LENGTH) :
     x_pos=snake.pos()[0]
@@ -103,15 +127,19 @@ def move_snake():
     if direction==RIGHT:    
         snake.goto(x_pos + SQUARE_SIZE, y_pos)
         print('You moved right!')
+        print(snake.pos())
     elif direction==LEFT:
         snake.goto(x_pos - SQUARE_SIZE, y_pos)
         print('You moved left!')
+        print(snake.pos())
     elif direction==UP:
         snake.goto(x_pos , y_pos + SQUARE_SIZE)
         print('You moved up!')
+        print(snake.pos())
     elif direction==DOWN:
         snake.goto(x_pos , y_pos - SQUARE_SIZE)
         print('You moved down!')
+        print(snake.pos())
     my_pos=snake.pos()
     eat_self()
     pos_list.append(my_pos)
@@ -150,17 +178,16 @@ def move_snake():
     
     turtle.ontimer(move_snake,TIME_STEP)
 move_snake()
-turtle.register_shape("cool (3).gif")
+turtle.register_shape("kayvon.gif")
 food=turtle.clone()
-food.shape("cool (3).gif")
-##food_pos = [(100,100),(-100,100),(-100,-100),(100,-100)]
-food_pos = [(100,100),]
+food.shape("kayvon.gif")
+food_pos = [(100,100),(-100,100)]
 food_stamps = []
 for this_food_pos in food_pos:
     x_pos = this_food_pos[0]
     y_pos = this_food_pos[1]
     food.goto(x_pos, y_pos)
-    stamp_id = food.stamp()
-    food_stamps.append(stamp_id)
+    stamp_ind = food.stamp()
+    food_stamps.append(stamp_ind)
 
-
+turtle.mainloop()
